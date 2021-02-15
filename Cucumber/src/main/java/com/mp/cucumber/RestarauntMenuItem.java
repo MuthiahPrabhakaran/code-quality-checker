@@ -1,5 +1,7 @@
 package com.mp.cucumber;
 
+import java.util.Objects;
+
 public class RestarauntMenuItem {
 
     private String menuItemName;
@@ -34,5 +36,19 @@ public class RestarauntMenuItem {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RestarauntMenuItem that = (RestarauntMenuItem) o;
+        return price == that.price &&
+                Objects.equals(menuItemName, that.menuItemName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(menuItemName, price);
     }
 }
