@@ -11,6 +11,9 @@ public class RestaurantMenu {
     }
 
     public void add(RestarauntMenuItem restaurantMenu){
+        if(isMenuItemExists(restaurantMenu)){
+            throw new IllegalArgumentException("Duplicate Item");
+        }
         this.restarauntMenuItems.add(restaurantMenu);
     }
 
