@@ -6,13 +6,14 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/java/features",
         glue = {"stepDefinitions", "hooks"},
-        tags = "@SmokeTest", 
+        tags = "@SmokeTest",
         plugin = {
                 "pretty",
                 "html:target/system-reports/html/report.html",
                 "json:target/system-reports/json/reports.json",
-                "junit:target/system-reports/xml/reports.xml"
-        }
+                "junit:target/system-reports/xml/reports.xml"},
+        //dryRun = false,
+        monochrome = true
 )
 public class TestRunner {
 }
